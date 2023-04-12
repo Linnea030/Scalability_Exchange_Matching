@@ -1,0 +1,1 @@
+We use the client code for testing on core1 2 4. The input request XML is edited directly in the code.

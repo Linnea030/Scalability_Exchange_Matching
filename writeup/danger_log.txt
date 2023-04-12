@@ -1,0 +1,34 @@
+ECE568 HW4 Scalability: Exchange Matching
+
+Xiuyuan Chen
+Yixin Cao
+
+Danger Log
+
+3/26
+We sorted out what the server needed to do and organised the code framework. We decided to use JAVA and gradle because it can handle threads perfectly. The main thing was to split the project into classes, such as the class used to create the sockets, the class used to handle requests and responses, parser etc.
+
+3/27
+Build some OOP programs which can help us achieve code reuse. We finished the socket side of the code and used the server class to implement the creation of sockets, receive users and connect to servers. 
+
+3/28
+We started building the database using postgresql. Four tables were created, ACCOUNT, ORDER_INFO, EXECUTEDORDER and POSITION. Opened and cancelled order are saved in ORDER_INFO.The isolation level of the database is set to Read Committed.
+
+3/29
+We sorted out the business logic and started building the order, position, and account classes. During the MATCH process, we determined a first-come, first-served rule to priorities each order.
+
+4/2
+We parsed the structure of the XML response and request, using classes to store them. And we found a bug that is when a query of database failed, we need to use rollback(). So that this project has a strong exception safety guarantee.
+
+4/4
+Using threadpool to deal with the thread and make this server thread-safe. Build run() function to make the whole program as a Deamon. Build Client.java to act as a client and test the whole program.
+
+4/5
+Add test cases in test/java/ece568hw4. Found some bugs and fix them.
+
+4/6
+We could not deploy our app into the Docker container. The problem might be the version of Gradle. In Linux system, it is only 4.4.1, while in Windows, it is 8.0.2. We can successfully run the server in Windows but cannot run it in a Linux environment. 
+
+We've put together the code framework and uploaded it to gitlab, and finally tested all the functions without any problems. Finished performance test and written a report.
+
+Seems like we have deployed our application in Docker sucessfully. 
